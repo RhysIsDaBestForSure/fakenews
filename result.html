@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real or Fake News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <h1>Real or Fake News</h1>
+    <p>The text you entered:</p>
+    <p>{{ text }}</p>
+    <p>The model predicts that this text is:</p>
+    <p>{{ result }}</p>
+    <p> The model says the text is:</p>
+    <p> {{ positive }} % positive</p>
+    <p> {{ negative }} % negative</p>
+    <p> {{ neutral }} % neutral</p>
+    <p> It also says that overall the text is: </p>
+    <p> {{ compound }} </p>
+</body>
+</html>

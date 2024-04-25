@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real or Fake News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <h1>Real or Fake News</h1>
+    <div class="form-container">
+    <form action="/predict" method="post">
+        <label for="text">Enter url:</label><br>
+        <textarea name="text" rows="9" cols="150"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>
+</html>
