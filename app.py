@@ -101,4 +101,4 @@ def predict():
     return render_template('result.html', result=result, text=text, positive=positive, negative=negative,neutral=neutral,compound=compound)
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001)
+    app.run()
