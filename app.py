@@ -7,6 +7,7 @@ import string
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import nltk
+from flask import abort
 nltk.download('vader_lexicon')
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -51,10 +52,17 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('home.html')
+@app.errorhandler(404)
+def page_not_found(error):
+    error=['Hmm. I don't know what you did but it broke something','Did you try and input a carrot again?']
+    return render_template('errors.html', error=error), 404
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    url = request.form['text']
+    try: 
+        url = request.form['text']
+    except:
+        abort(404)
     # download and parse article
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")
