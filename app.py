@@ -54,7 +54,7 @@ def home():
     return render_template('home.html')
 @app.errorhandler(404)
 def page_not_found(error):
-    error=['Hmm. I don't know what you did but it broke something','Did you try and input a carrot again?']
+    error=["Hmm. I don't know what you did but it broke something","Did you try and input a carrot again?"]
     return render_template('errors.html', error=error), 404
 
 @app.route('/predict', methods=['POST'])
