@@ -8,6 +8,26 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import nltk
 from flask import abort
+import pkg_resources
+import json
+import pandas as pd
+from datetime import *
+from gensim.parsing.preprocessing import remove_stopwords
+from nltk.stem.snowball import SnowballStemmer
+import string
+import feedparser as fp
+import dateutil
+import newspaper3k
+from unidecode import unidecode
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import AgglomerativeClustering
+import numpy as np
+import warnings
+import random
+import argparse
+import webbrowser
+import os
+warnings.filterwarnings("ignore")
 nltk.download('vader_lexicon')
 nltk.download('stopwords')
 nltk.download('punkt')
