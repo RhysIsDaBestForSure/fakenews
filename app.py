@@ -520,4 +520,24 @@ class Helper:
             raise Exception(f'Error in "Helper.prettify_similar()"')
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Automated News Article Collection with Python - https://github.com/elisemercury/Duplicate-Image-Finder')
+    parser.add_argument("-s", "--sources", type=str, help='Path of source JSON file with news sources to be scraped.', required=False, default="sources.json")
+    parser.add_argument("-n", "--news_name", type=str, help='Title name of the newsletter.', required=False, default='Daily News Update')
+    parser.add_argument("-d", "--news_date", type=str, help='Date of the newsletter.', required=False, default=date.today())
+    parser.add_argument("-t", "--template", type=str, help='Filename of the template HTML newsletter file.', required=False, default='newsletter.html')
+    parser.add_argument("-o", "--output_filename", type=str, help='Filename of the output HTML newsletter file.', required=False, default='default')
+    parser.add_argument("-r", "--return_details", type=bool, help='Choose whether to return the collected cluster data.', required=False, default=False)   
+    parser.add_argument("-a", "--auto_open", type=bool, help='Choose whether to automatically open the newsletter in the browser.', required=False, default=False)   
+    args = parser.parse_args()
+
+    sources = args.sources
+    news_name = args.news_name
+    news_date = args.news_date
+    template = args.template
+    output_filename = args.output_filename
+    return_details = args.return_details
+    auto_open = args.auto_open
+
+    newsletter = NewsCollector(sources, news_name, news_date, template, output_filename, return_details, auto_open)
+    newsletter.create()
     app.run()
