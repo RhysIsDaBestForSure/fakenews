@@ -17,7 +17,6 @@ Cython==0.29.28
 feedfinder2==0.0.4
 feedparser==6.0.10
 filelock==3.9.0
-Flask==2.2.2
 gensim==4.2.0
 idna==3.4
 importlib-metadata==6.0.0
