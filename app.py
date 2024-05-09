@@ -54,7 +54,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        user_query = request.form['query']
+        
+        # Get top headlines based on user query
+        top_headlines = newsapi.get_top_headlines(q=user_query,
+                                                  language='en',
+                                                  country='us')
+        top_headlines = top_headlines['articles'][:10]
+
+        # Get all articles based on user query
+        all_articles = newsapi.get_everything(q=user_query,
+                                              language='en',
+                                              sort_by='relevancy')
+        
+        all_articles = all_articles['articles'][:10]
+    return render_template('home.html', user_query=user_query, top_headlines=top_headlines, all_articles=all_articles)
 @app.errorhandler(404)
 def page_not_found(error):
     error="Hmm. I don't know what you did but it broke something. Did you try and input a carrot again?"
