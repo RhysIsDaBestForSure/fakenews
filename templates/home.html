@@ -13,31 +13,5 @@
         <input type="submit" value="Submit">
     </form>
     </div>
-    <header>
-        <h1 class="title">{{news_name}}</h1>
-        <p class="date">{{news_date}}</p>
-    </header>
-    <main>
-        <div class="card">
-            <a href="{{url00}}"><img src="{{pic00}}" alt="Article Image"></a>
-            <div class="card-body">
-                <p class="article-source">{{source00}}</p>
-                <h2 class="article-title"><a href="{{url00}}"></a>{{title00}}</h2>
-                <p class="article-body">{{body00}}</p>
-                <p class="article-similar">Similar articles: 
-                    <a class="article-similar-body" href="{{cluster00_0_url}}">{{cluster00_0_source}}</a>
-                </p>
-            </div>
-        </div>
-    </main>
-    <script>
-        function loadNextArticle() {
-            fetch('/next-article')
-               .then(response => response.text())
-               .then(html => {
-                    document.querySelector('main').innerHTML = html;
-                });
-        }
-    </script>
 </body>
 </html>
