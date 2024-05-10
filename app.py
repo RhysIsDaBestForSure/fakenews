@@ -39,6 +39,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     user_query = ''  # Initialize user_query here
+    top_headlines = []  # Initialize top_headlines here
+    all_articles = []  # Initialize all_articles here
     if request.method == 'POST':
         user_query = request.form['query']
         
