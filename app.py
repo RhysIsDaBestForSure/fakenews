@@ -38,18 +38,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    user_query = ''  # Initialize user_query here
-    top_headlines = []  # Initialize top_headlines here
-    all_articles = []  # Initialize all_articles here
-    if request.method == 'POST':
-        user_query = request.form['query']
-        
-        top_headlines = newsapi.get_top_headlines(q=user_query, language='en', country='us')
-        top_headlines = top_headlines['articles'][:10]
-
-        all_articles = newsapi.get_everything(q=user_query, language='en', sort_by='relevancy')
-        all_articles = all_articles['articles'][:10]
-    return render_template('home.html', user_query=user_query, top_headlines=top_headlines, all_articles=all_articles)
+    return render_template('home.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
